@@ -57,7 +57,10 @@ func StringToIPRange(s string, val interface{}) (item *IPRange, err error) {
 			err = e
 		}
 	} else {
-		item = &IPRange{StartIP: net.ParseIP(s)}
+		item = &IPRange{
+			StartIP: net.ParseIP(s),
+			Data:    val,
+		}
 		item.EndIP = item.StartIP
 	}
 
